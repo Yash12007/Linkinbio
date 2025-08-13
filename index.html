@@ -319,42 +319,10 @@
     <script async src="https://www.instagram.com/embed.js"></script>
     <script>
         document.getElementById("notifyBtn").addEventListener("click", () => {
-            fetch("https://store.yash12007.com/products.json", {
-                method: "GET",
-                mode: "cors"
-            })
-            .then(response => {
-                if (!response.ok) throw new Error("Network response was not ok");
-                return response.json();
-            })
-            .then(data => {
-                console.log("Fetched data:", data);
-                if (Notification.permission === "granted") {
-                    showNotification(data[0]);
-                } else if (Notification.permission !== "denied") {
-                    Notification.requestPermission().then(permission => {
-                        if (permission === "granted") {
-                            showNotification(data[0]);
-                        }
-                    });
-                }
-            })
-            .catch(error => {
-                console.error("Fetch error:", error);
-            });
+            window.open("https://store.yash12007.com", "_blank");
         });
-        function showNotification(product) {
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.ready.then(reg => {
-                    reg.showNotification(product.Name, {
-                        body: product.Description,
-                        icon: product.Image[0],
-                        data: { link: product.Link }
-                    });
-                });
-            }
-        }
     </script>
 </body>
 
 </html>
+
