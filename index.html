@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -258,6 +259,52 @@
             white-space: nowrap;
             -webkit-box-orient: vertical;
             padding: 5px;
+        }#subscribeUs{
+            background: #fff;
+            color: #000;
+            width: fit-content;
+            height:fit-content;
+            border-radius:1rem;
+            box-shadow:2px 2px 5px #222;
+            text-overflow: wrap;
+        }form{
+            display:grid;
+            place-items:center;
+        }input{
+            padding: 8px;
+            margin:5px;
+            display: flex;
+            background:#fff;
+            border:transparent;
+            border-radius:5px;
+            box-shadow:1px 1px 2px #222 inset;
+            color:#111;
+        }form button{
+            padding: 8px;
+            background: #000;
+            color:#fff;
+            border: 1px solid #000;
+            border-radius:30px;
+            margin:10px;
+            width:40%;
+        }form p{
+            font-size:8px;
+            color:#222;
+        }label{
+            display: flex;
+            font-size: 12px;
+            place-items: center;
+            justify-content: start;
+        }body:has(#subscribeUs:popover-open) main {
+            filter: blur(6px);
+            pointer-events: none;
+            user-select: none;
+        }
+        #subscribeUs[popover] {
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -277,7 +324,7 @@
                         d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
                 </svg>
             </button>
-            <button title="Notifications" onclick="showNotifications()"">
+            <button popovertarget="subscribeUs" title="Notifications">
                 <i class=" bi bi-bell-fill"></i>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-bell-fill" viewBox="0 0 16 16">
@@ -433,88 +480,32 @@
             </div>
         </div>
         <p><a href="maps.app.goo.gl/drNAb31ZoxKrZ7kS7" style="color: #0df;">Yash12007, Pune, Maharashtra,
-                411048</a><br>For any inquires, contact us at: <a href="mailto:info@yash12007.com"
-                style="color: #0df;">info@yash12007.com</a></p>
+                411048</a><br>For any inquires, contact us at: <a href="/cdn-cgi/l/email-protection#5b32353d341b223a28336a696b6b6c75383436" style="color: #0df;"><span class="__cf_email__" data-cfemail="d7beb9b1b897aeb6a4bfe6e5e7e7e0f9b4b8ba">[email&#160;protected]</span></a></p>
         <p
             style="width: calc(100% - 18px); border-top: 1px solid #ccc; display: flex; place-items: center; justify-content: center; height: 28px; font-size: 14px;">
             &copy; 2025 Yash12007. All Rights Reserved.</p>
     </footer>
-    <div id="notifications">
-        <div id="notihead">
-            <b>Notifications</b>
-            <div>
-                <button title="Refresh" onclick="fetchProduct()">
-                    <i class="bi bi-arrow-clockwise"></i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
-                        <path
-                            d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
-                    </svg>
-                </button>
-                <button title="Close" onclick="closeNotifications()">
-                    <i class="bi bi-x-lg"></i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-x-lg" viewBox="0 0 16 16">
-                        <path
-                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                    </svg>
-                </button>
+    <div id="subscribeUs" popover>
+        <form action="https://formspree.io/f/xldwvovy" method="post" accept-charset="utf-8">
+            <img src="https://www.yash12007.com/192x192.png" alt="Yash12007 | Subscribe | Logo" width="130px"/>
+            <b>Yash12007</b>
+            <p style="width:60%; text-align:center;">You'll receive Newsletters and updates from Yash12007 to your email.</p>
+            <div style="width:80%; padding:15px;">
+                <label for="Email">Email</label>
+                <input placeholder="user@example.com" required type="email" name="Email" id="Email" value="" />
+                <div style="display:flex; place-items:center; justify-content:space-between;">
+                    <button type="submit">Subscribe</button>
+                    <button type="button" style="background:#fff; color:#000;" popovertarget="subscribeUs" popovertargetaction="hide">Close</button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
-    <script async src="https://www.instagram.com/embed.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://www.instagram.com/embed.js"></script>
     <script>
         document.getElementById("Products").addEventListener("click", () => {
             window.open("https://store.yash12007.com", "_blank");
         });
-        function showNotifications() {
-            document.getElementById("notifications").style.display = "block";
-            fetchProduct();
-        }
-        function fetchProduct() {
-            fetch("https://store.yash12007.com/products.json")
-                .then(response => response.json())
-                .then(data => {
-                    const notificationBox = document.getElementById("notifications");
-                    notificationBox.innerHTML = `
-                    <div id="notihead">
-                        <b>Notifications</b>
-                        <div>
-                            <button title="Refresh" onclick="fetchProduct()">
-                                <i class="bi bi-arrow-clockwise"></i>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
-                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
-                                </svg>
-                            </button>
-                            <button title="Close" onclick="closeNotifications()">
-                                <i class="bi bi-x-lg"></i>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                    data.forEach(product => {
-                        productBox = `
-                        <div class="Ncard" onclick="window.open('${product.PPF}', '_blank')">
-                            <img src="${product.Image[0]}" alt="${product.Name}">
-                            <div>
-                                <p><b>${product.Name}</b><br>${product.Description}</p>
-                            </div>
-                        </div>
-                    `;
-                        notificationBox.innerHTML += productBox;
-                    });
-                })
-                .catch(error => {
-                    console.error("Error fetching product data:", error);
-                });
-        } function closeNotifications() {
-            document.getElementById("notifications").style.display = "none";
-        }
     </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9566e86f01df45009b8dc922ac29e934","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
